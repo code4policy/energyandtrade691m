@@ -3,25 +3,33 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden; /* 스크롤 막기 */
-    zoom: 100%;
+    padding: 200px; /* Updated padding */
+    background-color: #f9f9f9; /* Fallback color */
+    background-image: url('../image/backgroundimagemain.svg'); /* Background image */
+    background-size: cover; /* Ensure full coverage */
+    background-repeat: no-repeat; /* No repeat */
+    background-position: center; /* Center the image */
+    overflow-y: scroll; /* Always show vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    zoom: 100%; /* No scaling */
+}
+
+/* Make Text Justify */
+p {
+    text-align: justify; /* Justify text alignment */
+    line-height: 1.6; /* Add spacing between lines for better readability */
+    margin-bottom: 15px; /* Space between paragraphs */
 }
 
 /* Navbar Styles */
 .navbar {
-    position: absolute;
-    top: 15px;
-    right: 150px;
-    background-color: #A41034;
+    position: absolute; /* Allows precise positioning using coordinates */
+    top: 15px; /* Adjust distance from the top */
+    right: 150px; /* Adjust distance from the right */
+    background-color: #A41034; /* Maroon background */
     color: white;
     padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: 8px; /* Optional rounded corners */
 }
 
 .nav-menu {
@@ -29,7 +37,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    justify-content: space-around;
+    justify-content: space-around; /* Space between links */
 }
 
 .nav-item {
@@ -44,24 +52,26 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #ffffff;
-    color: #800000;
-    border-radius: 5px;
+    background-color: #ffffff; /* White on hover */
+    color: #800000; /* Optional: Change text color to maroon for contrast */
+    border-radius: 5px; /* Rounded corners on hover */
     transition: background-color 0.3s;
 }
 
 /* Main container styling */
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
-    width: 1200px; 
-    margin: 50px auto; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    max-width: 1700px;
+    max-height: 1500px;
+    margin: 0 auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid #ddd;
+    opacity: 5;
 }
 
 /* Profile card styling */
@@ -72,20 +82,16 @@ body {
     padding: 20px;
     border: 1px solid #ddd;
     text-align: left;
-    height: 250px; 
-    overflow: hidden; 
 }
 
 .profile-card h2 {
     margin-top: 0;
     color: #333;
-    font-size: 1.2em; 
 }
 
 .profile-card p {
     margin-bottom: 0;
     color: #555;
-    font-size: 0.9em; 
 }
 
 /* Headings */
