@@ -3,15 +3,14 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 200px; /* Updated padding */
-    background-color: #f9f9f9; /* Fallback color */
-    background-image: url('../image/backgroundimagemain.svg'); /* Background image */
-    background-size: cover; /* Ensure full coverage */
-    background-repeat: no-repeat; /* No repeat */
-    background-position: center; /* Center the image */
-    overflow-y: scroll; /* Always show vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrolling */
-    zoom: 100%; /* No scaling */
+    padding: 200px;
+    background-color: #f9f9f9;
+    background-image: url('../image/backgroundimagemain.svg');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: left center; 
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 /* Make Text Justify */
