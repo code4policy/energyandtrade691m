@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How the U.S. Energy Source Trade Changed Over Time?</title>
+    <link rel="stylesheet" href="us-trade-styles.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            sections.forEach(section => section.style.display = 'none');
+            document.querySelector('#petroleum').style.display = 'block';
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    sections.forEach(section => section.style.display = 'none');
+                    document.querySelector(this.getAttribute('href')).style.display = 'block';
+                });
+            });
+
+            const petroleumImage = document.getElementById('petroleum-map');
+            const yearDisplay = document.getElementById('year-display');
+            let currentYear = 1990;
+            const startYear = 1990;
+            const endYear = 2024;
+
+            function updateImage() {
+                petroleumImage.src = `us_trade_petroleum/petroleum_trade_${currentYear}.png`;
+                yearDisplay.textContent = `Year: ${currentYear}`;
+            }
+
+            function cycleImages() {
+                setInterval(() => {
+                    currentYear = currentYear === endYear ? startYear : currentYear + 1;
+                    updateImage();
+                }, 2000);
+            }
+
+            updateImage();
+            cycleImages();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>How the U.S. Energy Source Trade Changed Over Time?</h1>
+    </header>
+    <nav>
+        <div class="breadcrumb">
+            <a href="#petroleum">Petroleum</a> |
+            <a href="#coal">Coal</a> |
+            <a href="#natural-gas">Natural Gas</a> |
+            <a href="#nuclear">Nuclear</a> |
+            <a href="#wind">Wind</a> |
+            <a href="#hydropower">Hydropower</a> |
+            <a href="#solar">Solar</a> |
+            <a href="#biomass">Biomass</a>
+        </div>
+    </nav>
+    <main>
+        <section id="petroleum">
+            <h2>Petroleum</h2>
+            <div id="image-container">
+                <img id="petroleum-map" src="us_trade_petroleum/petroleum_trade_1990.png" alt="Petroleum Trade Map">
+            </div>
+            <p id="year-display">Year: 1990</p>
+        </section>
+        <section id="coal">
+            <h2>Coal</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="natural-gas">
+            <h2>Natural Gas</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="nuclear">
+            <h2>Nuclear</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="wind">
+            <h2>Wind</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="hydropower">
+            <h2>Hydropower</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="solar">
+            <h2>Solar</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+        <section id="biomass">
+            <h2>Biomass</h2>
+            <p>Interactive map and content will go here.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 U.S. Energy Trade Analysis</p>
+    </footer>
+</body>
+</html>
