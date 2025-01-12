@@ -1,0 +1,142 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 200px; /* Updated padding */
+    background-color: #f9f9f9; /* Fallback color */
+    background-image: url('../image/backgroundimagemain.svg'); /* Background image */
+    background-size: cover; /* Ensure full coverage */
+    background-repeat: no-repeat; /* No repeat */
+    background-position: center; /* Center the image */
+    overflow-y: scroll; /* Always show vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    zoom: 100%; /* No scaling */
+}
+
+/* Make Text Justify */
+p {
+    text-align: justify; /* Justify text alignment */
+    line-height: 1.6; /* Add spacing between lines for better readability */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: absolute; /* Allows precise positioning using coordinates */
+    top: 15px; /* Adjust distance from the top */
+    right: 200px; /* Adjust distance from the right */
+    background-color: #A41034; /* Maroon background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px; /* Optional rounded corners */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around; /* Space between links */
+}
+
+.nav-item {
+    text-align: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #ffffff; /* White on hover */
+    color: #800000; /* Optional: Change text color to maroon for contrast */
+    border-radius: 5px; /* Rounded corners on hover */
+    transition: background-color 0.3s;
+}
+
+/* Main container styling */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    max-width: 1700px;
+    max-height: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    opacity: 5;
+}
+
+/* Profile card styling */
+.profile-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.profile-card h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.profile-card p {
+    margin-bottom: 0;
+    color: #555;
+}
+
+/* Headings */
+h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 15px;
+}
+
+/* Lists */
+ul, ol {
+    margin: 10px 0 20px 20px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Section for each individual */
+.individual-section {
+    margin-bottom: 30px;
+}
+
+/* Bold labels */
+label {
+    font-weight: bold;
+    color: #002147;
+}
