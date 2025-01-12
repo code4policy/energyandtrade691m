@@ -21,41 +21,35 @@ p {
     margin-bottom: 15px; /* Space between paragraphs */
 }
 
-/* Navbar Styles */
 .navbar {
-    position: absolute; /* Allows precise positioning using coordinates */
-    top: 15px; /* Adjust distance from the top */
-    right: 150px; /* Adjust distance from the right */
-    background-color: #A41034; /* Maroon background */
+    position: absolute;
+    top: 15px;
+    right: 150px;
+    background-color: #A41034;
     color: white;
     padding: 10px 20px;
-    border-radius: 8px; /* Optional rounded corners */
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    justify-content: space-around; /* Space between links */
-}
-
-.nav-item {
-    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    line-height: 1.8;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #ffffff; /* White on hover */
-    color: #800000; /* Optional: Change text color to maroon for contrast */
-    border-radius: 5px; /* Rounded corners on hover */
-    transition: background-color 0.3s;
+    background-color: #ffffff;
+    color: #800000;
+    border-radius: 5px;
+    text-shadow: none; /* 호버 시 텍스트 그림자 제거 */
 }
 
 /* Main container styling */
