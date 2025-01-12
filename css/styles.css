@@ -8,7 +8,7 @@ body {
     background-image: url('../image/backgroundimagemain.svg'); /* Background image */
     background-size: cover; /* Ensure full coverage */
     background-repeat: no-repeat; /* No repeat */
-    background-position: center; /* Center the image */
+    background-position: -50px center; /* Center the image */
     overflow-y: scroll; /* Always show vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrolling */
     zoom: 100%; /* No scaling */
