@@ -1,0 +1,39 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6F4F2;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #A41034;
+    color: white;
+    padding: 1em 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 2em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #002147;
+    color: white;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
