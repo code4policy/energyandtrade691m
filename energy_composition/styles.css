@@ -1,39 +1,72 @@
-/* styles.css */
-
+/* General Reset */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #F6F4F2;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
+/* Header Styling */
 header {
-    background-color: #A41034;
+    background: #800000;
     color: white;
-    padding: 1em 0;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    margin: 0;
-}
-
+/* Main Section Styling */
 main {
-    padding: 2em 0;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
+    padding: 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
+main h2 {
+    color: #800000;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image Styling */
+.content img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Additional Information Section */
+.info {
+    background: none;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+
+/* Footer Styling */
 footer {
-    background-color: #002147;
+    background: #333;
     color: white;
-    padding: 1em 0;
-    position: fixed;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
