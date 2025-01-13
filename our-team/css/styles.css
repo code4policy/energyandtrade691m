@@ -23,14 +23,16 @@ p {
 
 /* Navbar Styles */
 .navbar {
-    position: absolute; /* Allows precise positioning using coordinates */
+    position: fixed; /* Fixed positioning ensures it stays in place */
     top: 15px; /* Adjust distance from the top */
-    right: 150px; /* Adjust distance from the right */
+    right: 90px; /* Adjust distance from the right */
     background-color: #A41034; /* Maroon background */
     color: white;
     padding: 10px 20px;
     border-radius: 8px; /* Optional rounded corners */
+    z-index: 1000; /* Ensures it appears above other elements */
 }
+
 
 .nav-menu {
     list-style: none;
