@@ -23,14 +23,17 @@ p {
 
 /* Navbar Styles */
 .navbar {
-    position: absolute; /* Allows precise positioning using coordinates */
-    top: 15px; /* Adjust distance from the top */
-    right: 150px; /* Adjust distance from the right */
+    position: absolute; /* Allows precise positioning */
+    top: 15px; /* Keep distance from the top as per original */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust horizontally by half its width */
     background-color: #A41034; /* Maroon background */
     color: white;
     padding: 10px 20px;
     border-radius: 8px; /* Optional rounded corners */
+    text-align: center; /* Center text inside the navbar */
 }
+
 
 .nav-menu {
     list-style: none;
@@ -63,7 +66,7 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px; /* Space between items */
-    max-width: 1700px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 20px;
     background: #fff;
@@ -97,6 +100,28 @@ p {
     margin-bottom: 0;
     color: #555;
 }
+
+
+
+}
+
+.graph-card:hover {
+    transform: scale(1.02); /* Subtle zoom effect on hover */
+}
+
+.graph-card h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.graph-card p {
+    margin-bottom: 0;
+    color: #555;
+}
+
+
+
+
 
 /* Headings */
 h2, h3 {
@@ -143,4 +168,12 @@ a:hover {
 label {
     font-weight: bold;
     color: #002147;
+}
+
+
+.graph {
+    max-width: 100%; /* Ensures the graph doesn't exceed the container width */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Prevents overflow caused by inline elements */
+    margin: 0 auto; /* Centers the graph horizontally if needed */
 }
