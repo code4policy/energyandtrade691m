@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 200px;
+    padding: 50px;
     background-color: #f9f9f9;
     background-image: url('../image/backgroundimagemain.svg');
     background-size: cover;
@@ -12,13 +12,6 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     zoom: 100%;
-}
-
-/* Make Text Justify */
-p {
-    text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 15px;
 }
 
 /* Navbar Styles */
@@ -60,40 +53,56 @@ p {
     transition: background-color 0.3s;
 }
 
-/* Profile card styling */
-.profile-card {
+/* Content container for two-column layout */
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Space between columns */
+    margin-top: 80px;
+    padding: 20px;
+}
+
+/* Text Column */
+.text-column {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border: 1px solid #ddd;
     text-align: left;
     transition: transform 0.2s;
 }
 
-.profile-card:hover {
-    transform: scale(1.02);
-}
-
-.profile-card h2 {
+.text-column h1 {
     margin-top: 0;
     color: #333;
+    font-size: 24px;
 }
 
-.profile-card p {
-    margin-bottom: 0;
+.text-column h2 {
+    margin-top: 20px;
+    font-size: 20px;
     color: #555;
 }
 
-/* Graph card styling */
-.graph-card {
-    margin-top: 20px;
+.text-column p {
+    color: #666;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Image Column */
+.image-column {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
 }
 
-.graph-card img {
+.image-column img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
     display: block;
     margin: 0 auto;
 }
