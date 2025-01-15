@@ -1,72 +1,72 @@
-/* General Reset */
+/* General Body Styling */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f9;
-    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    background-image: url('../image/backgroundimagemain.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    zoom: 120%;
 }
 
-/* Header Styling */
-header {
-    background: #800000;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Main Section Styling */
-main {
+/* Card Grid Section */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Space between cards */
+    margin: 40px auto;
+    max-width: 1000px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-main h2 {
-    color: #800000;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Image Styling */
-.content img {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-/* Additional Information Section */
-.info {
-    background: none;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 30px;
 }
 
-/* Footer Styling */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card img {
     width: 100%;
+    height: auto;
+    border-bottom: 3px solid #f4f4f9;
 }
 
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin: 0 0 10px;
+    color: #A41034;
+    font-size: 20px;
+}
+
+.card-content p {
+    margin: 0;
+    color: #555;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+        padding: 10px;
+    }
 }

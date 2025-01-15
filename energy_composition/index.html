@@ -7,32 +7,61 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Composition of U.S. Energy Production and Consumption</h1>
-    </header>
-    <main>
-        <section class="content">
-            <img src="production.svg" alt="U.S. Primary Energy Production Chart">
-            <img src="consumption2.svg" alt="U.S. Primary Energy Consumption Chart">
-            <img src="composition.svg" alt="U.S. Primary Energy Composition Chart">
-        </section>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="../energyandtrade691m/index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="1coal.html" class="nav-link">Download</a></li>
+        </ul>
+    </nav>
 
-        <section class="info">
-            <h2>About U.S. Energy Production</h2>
-            <p>
-                The United States produces energy from various sources, including renewable energy like solar and wind, 
-                as well as non-renewable sources such as coal, natural gas, and nuclear power. This chart displays the trends 
-                and composition of U.S. energy production over the years, reflecting the shift towards more sustainable practices.
-            </p>
-            <p>
-                Understanding these trends helps policymakers and industry leaders make informed decisions that balance energy demands 
-                with environmental sustainability.
-            </p>
+    <main>
+        <section class="card-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="production.svg" alt="U.S. Primary Energy Production Chart">
+                <div class="card-content">
+                    <h3>Primary Energy Production</h3>
+                    <p>
+                        Figure 1 showcases the trends in U.S. primary energy production, highlighting key shifts 
+                        in energy sources like renewables and fossil fuels.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="consumption2.svg" alt="U.S. Primary Energy Consumption Chart">
+                <div class="card-content">
+                    <h3>Primary Energy Consumption</h3>
+                    <p>
+                        Figure 2 illustrates U.S. energy consumption, detailing the balance between industrial, 
+                        residential, and transportation sectors.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="composition.svg" alt="U.S. Primary Energy Composition Chart">
+                <div class="card-content">
+                    <h3>Energy Composition</h3>
+                    <p>
+                        Figure 3 displays the composition of energy sources in the U.S., comparing renewables, 
+                        nuclear power, and fossil fuels over time.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="innovation.svg" alt="Energy Innovation Chart">
+                <div class="card-content">
+                    <h3>Energy Innovation</h3>
+                    <p>
+                        Figure 4 focuses on advancements in energy technology and the growth of innovative solutions 
+                        like battery storage and smart grids.
+                    </p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Energy Insights | <a href="https://www.energy.gov">Learn More</a></p>
-    </footer>
-    <script src="script.js"></script>
 </body>
 </html>
