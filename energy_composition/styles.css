@@ -53,13 +53,28 @@ body {
     transition: background-color 0.3s;
 }
 
+
+.consumption-heading {
+    margin: 0 0 10px;
+    color: #03045e;
+    font-size: 18px;
+    padding: 0;
+}
+
+.production-heading {
+    margin: 0 0 10px;
+    color: #800000;
+    font-size: 18px;
+    padding: 0;
+}
+
 /* Card Grid Section */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    grid-template-columns: 1fr; /* Single column layout (vertical stacking) */
     gap: 20px; /* Space between cards */
-    margin: 40px auto;
-    max-width: 1000px;
+    margin: 40px auto; /* Center the grid */
+    max-width: 800px; /* Restrict the overall width of the grid */
     padding: 20px;
     background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     border-radius: 8px;
@@ -73,6 +88,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+
+
 }
 
 .card:hover {
@@ -90,16 +107,13 @@ body {
     padding: 20px;
 }
 
-.card-content h3 {
-    margin: 0 0 10px;
-    color: #A41034;
-    font-size: 20px;
-}
+
 
 .card-content p {
     margin: 0;
-    color: #555;
+    color: #000000;
     text-align: justify;
+    font-size: 14px
 }
 
 /* Responsive Design */
