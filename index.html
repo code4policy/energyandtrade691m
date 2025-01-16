@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
+       <div class="logo">
+        <a href="https://www.hks.harvard.edu/courses/programming-and-data-policymakers" target="_blank">
+            <img src="image/hkslogo.svg" alt="HKS Logo" class="logo-image">
+            | Energy and Trade
+        </a>
+    </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="historicaltrend/historicaltrend.html" class="nav-link">Historical Trend</a></li>
@@ -21,78 +27,85 @@
         </ul>
     </nav>
 
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Energy and Trade: Shaping the Future</h1>
+            <p>
+                Explore the interplay between energy, trade, and policy with interactive insights and data-driven analysis. 
+                Navigate the complexities of a changing energy landscape with ease.
+            </p>
+            <a href="historicaltrend/historicaltrend.html" class="cta-button">Explore Historical Trends</a>
+        </div>
+    </section>
+
     <!-- Content Section -->
-    <header class="hero">
-        <h1>Energy consumption, production, trade and policy</h1>
-    </header>
+    <div class="content-container">
+        <!-- Text Column -->
+        <div class="text-column">
+            <h2>About This Website</h2>
+            <p>
+                This platform explores the intricate connections between energy production, consumption, trade, and policy. 
+                Through interactive visualizations and comprehensive analysis, we shed light on critical energy trends that 
+                shape the global economy and influence decision-making.
+            </p>
 
-    <!-- Content Section -->
-    <main class="content">
-    <section id="overview" class="content-box">
-        <h2>Energy Consumption, Production, Trade, and Policy</h2>
-        <div class="icon-container">
-            <span class="icon-box">Contents</span>
-            <span class="icon-text">
-                On this webpage, you can explore the energy production and consumption trends of major countries, 
-                the resources used for energy generation, and the trade patterns of energy production materials with the United States 
-                from 1990 to the most recent data.
-            </span>
-        </div>
-        <div class="icon-container">
-            <span class="icon-box">Source</span>
-            <span class="icon-text">
-                All the data presented here is sourced from official websites, including resources from EIA and UN Comtrade.
-            </span>
-        </div>
-    </section>
+            <p>
+                From renewable energy adoption to trade partnerships, this site is your gateway to understanding the evolving 
+                energy landscape. With a data-driven approach, we aim to uncover insights that help stakeholders navigate the 
+                complexities of energy systems and policies.
+            </p>
 
-    <section id="why-energy" class="content-box">
-        <h2>Why We Care About Energy</h2>
-        <div class="icon-container">
-            <span class="icon-box">Rising Global Demand</span>
-            <span class="icon-text">
-                As global energy demand continues to rise, understanding how energy is supplied and consumed is critical to sustaining growth.
-            </span>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Interactive graphs and maps to visualize energy trends and trade data.</li>
+                <li>Comprehensive overviews of energy sources, from coal and oil to wind and solar.</li>
+                <li>Insights into international trade and policy impacts on energy systems.</li>
+            </ul>
         </div>
-        <div class="icon-container">
-            <span class="icon-box">Supply Chain Disruptions</span>
-            <span class="icon-text">
-                Disruptions in supply chains due to geopolitical tensions and natural resource limitations further emphasize the need for informed decisions.
-            </span>
-        </div>
-        <div class="icon-container">
-            <span class="icon-box">Transition to Sustainability</span>
-            <span class="icon-text">
-                Optimizing resource allocation and transitioning to sustainable energy systems require accurate and timely data insights.
-            </span>
-        </div>
-    </section>
 
-    <section id="what-we-do" class="content-box">
-        <h2>What We Are Doing</h2>
-        <div class="icon-container">
-            <span class="icon-box">About the Course</span>
-            <span class="icon-text">
-                We are students of Harvard Kennedy School's DPI-691M (Programming and Data for Policymakers), 
-                taught by 
-                <a href="https://www.hks.harvard.edu/faculty/dhrumil-mehta" class="professor-link">Professor Dhrumil Mehta</a> 
-                and 
-                <a href="https://www.aarushisahejpal.com/" class="professor-link">Professor Aarushi Sahejpal</a>.
-        </span>
+        <!-- Image Grid -->
+        <div class="image-grid">
+            <a href="historicaltrend/1coal.html">
+                <img src="image/coalicon.webp" alt="Coal Energy Icon">
+            </a>
+            <a href="historicaltrend/2oil.html">
+                <img src="image/oilicon.webp" alt="Oil Energy Icon">
+            </a>
+            <a href="historicaltrend/3gas.html">
+                <img src="image/gasicon.webp" alt="Gas Energy Icon">
+            </a>
+            <a href="historicaltrend/4nuc.html">
+                <img src="image/nucicon.webp" alt="Nuclear Energy Icon">
+            </a>
+            <a href="historicaltrend/5hydro.html">
+                <img src="image/hydroicon.webp" alt="Hydro Energy Icon">
+            </a>
+            <a href="historicaltrend/6wind.html">
+                <img src="image/windicon.webp" alt="Wind Energy Icon">
+            </a>
+            <a href="historicaltrend/7solar.html">
+                <img src="image/solaricon.webp" alt="Solar Energy Icon">
+            </a>
+            <a href="historicaltrend/8other.html">
+                <img src="image/othersicon.webp" alt="Other Energy Sources Icon">
+            </a>
         </div>
-        <div class="icon-container">
-            <span class="icon-box">Beyond Programming</span>
-            <span class="icon-text">
-                This course goes beyond merely learning programming; it fosters collaboration under the philosophy of agile development.
-            </span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Energy and Trade. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="our-team/index.html">About Us</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="#" aria-label="Facebook"><img src="icons/facebook.svg" alt="Facebook Icon"></a>
+                <a href="#" aria-label="Twitter"><img src="icons/twitter.svg" alt="Twitter Icon"></a>
+                <a href="#" aria-label="LinkedIn"><img src="icons/linkedin.svg" alt="LinkedIn Icon"></a>
+            </div>
         </div>
-        <div class="icon-container">
-            <span class="icon-box">Impactful Teamwork</span>
-            <span class="icon-text">
-                Through teamwork, we create new web pages, practice our programming skills, and strive to make meaningful contributions to society.
-            </span>
-        </div>
-    </section>
-</main>
+    </footer>
 </body>
 </html>

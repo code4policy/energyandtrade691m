@@ -1,108 +1,153 @@
-/* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* General Reset */
+* {
     margin: 0;
-    padding: 50px;
-    background-color: #f9f9f9;
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    zoom: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-/* Navbar Styles */
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2; /* Light gray for background */
+    color: #333; /* Neutral text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navigation Bar */
 .navbar {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #A41034;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-align: center;
+    background-color: #002147; /* Dark navy blue */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
-    justify-content: space-around;
+    gap: 1rem;
 }
 
 .nav-item {
-    text-align: center;
+    position: relative;
 }
 
 .nav-link {
-    color: white;
     text-decoration: none;
-    padding: 10px 15px;
-    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: #ffffff;
-    color: #800000;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    background-color: #004a99; /* Lighter blue hover effect */
+    transform: scale(1.05);
 }
 
-/* Content container for two-column layout */
+/* Content Container */
 .content-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px; /* Space between columns */
-    margin-top: 80px;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background-color: #fff; /* White for content background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Text Column */
 .text-column {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: left;
-    transition: transform 0.2s;
+    flex: 2;
+    margin-bottom: 1rem;
 }
 
 .text-column h1 {
-    margin-top: 0;
-    color: #333;
-    font-size: 24px;
+    font-size: 2rem;
+    color: #002147; /* Dark navy blue */
+    margin-bottom: 1rem;
 }
 
 .text-column h2 {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #555;
+    font-size: 1.5rem;
+    color: #004a99; /* Slightly lighter blue for subheadings */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .text-column p {
-    color: #666;
-    margin-bottom: 10px;
-    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.text-column ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.text-column ul li {
+    margin-bottom: 0.5rem;
 }
 
 /* Image Column */
 .image-column {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-column img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds depth to the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-column img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .text-column {
+        flex: 1;
+    }
+
+    .image-column {
+        flex: 1;
+        margin-top: 1rem;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
 }
