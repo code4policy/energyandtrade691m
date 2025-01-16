@@ -1,143 +1,154 @@
-/* General body styling */
+/* General Reset */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 200px;
-    background-color: #f9f9f9;
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: left center; 
-    overflow-y: scroll;
-    overflow-x: hidden;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Make Text Justify */
-p {
-    text-align: justify; /* Justify text alignment */
-    line-height: 1.6; /* Add spacing between lines for better readability */
-    margin-bottom: 15px; /* Space between paragraphs */
+/* Header and Navigation */
+.header {
+    background-color: #004080;
+    color: #fff;
+    padding: 15px 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Navbar Styles */
 .navbar {
-    position: fixed; /* Fixed positioning ensures it stays in place */
-    top: 15px; /* Adjust distance from the top */
-    right: 90px; /* Adjust distance from the right */
-    background-color: #A41034; /* Maroon background */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px; /* Optional rounded corners */
-    z-index: 1000; /* Ensures it appears above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.logo img {
+    width: 120px;
+}
 
 .nav-menu {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-    justify-content: space-around; /* Space between links */
+    gap: 20px;
 }
 
 .nav-item {
-    text-align: center;
+    margin: 0;
 }
 
 .nav-link {
-    color: white;
     text-decoration: none;
-    padding: 10px 15px;
+    color: #fff;
     font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #ffffff; /* White on hover */
-    color: #800000; /* Optional: Change text color to maroon for contrast */
-    border-radius: 5px; /* Rounded corners on hover */
-    transition: background-color 0.3s;
+    background-color: #f0a500;
+    color: #004080;
 }
 
-/* Main container styling */
-.container {
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #004080; /* Solid background color */
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Profiles Section */
+.profiles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between items */
-    max-width: 1700px;
-    max-height: 1500px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ddd;
-    opacity: 5;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px;
 }
 
-/* Profile card styling */
 .profile-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    background: #fff;
     border: 1px solid #ddd;
-    text-align: left;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile-card h2 {
     margin-top: 0;
-    color: #333;
+    color: #004080;
+    font-size: 1.5rem;
 }
 
 .profile-card p {
-    margin-bottom: 0;
-    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
-/* Headings */
-h2, h3 {
-    color: #2c3e50;
+/* Footer */
+.footer {
+    background-color: #004080;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.footer-content {
     margin-bottom: 15px;
 }
 
-h2 {
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-}
-
-/* Paragraphs */
-p {
-    margin-bottom: 15px;
-}
-
-/* Lists */
-ul, ol {
-    margin: 10px 0 20px 20px;
+.footer-links {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-li {
-    margin-bottom: 5px;
+.footer-links li {
+    display: inline;
 }
 
-/* Links */
-a {
-    color: #3498db;
+.footer-links a {
+    color: #f0a500;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Section for each individual */
-.individual-section {
-    margin-bottom: 30px;
-}
-
-/* Bold labels */
-label {
     font-weight: bold;
-    color: #002147;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.social-media a img {
+    width: 28px;
+    height: auto;
+    margin: 0 10px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-media a img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
 }
