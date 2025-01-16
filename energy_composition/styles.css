@@ -68,6 +68,40 @@ body {
     padding: 0;
 }
 
+
+/* Download Button*/
+.download-button {
+    position: absolute; /* Allows precise positioning inside the chart container */
+    bottom: 20px; /* Moves the button upward slightly from the bottom */
+    right: 10px; /* Keeps the button close to the right edge */
+    padding: 5px 10px; /* Smaller padding for a more compact button */
+    background-color: #A41034; /* Dark red button */
+    color: white; /* White text */
+    text-decoration: none; /* Removes underline */
+    font-size: 12px; /* Reduces text size */
+    border-radius: 5px; /* Keeps the rounded corners */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #800000; /* Darker red on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+
+.chart-container {
+    position: relative; /* Enables positioning of the button relative to this container */
+    text-align: center; /* Centers the image */
+}
+
+.chart-container img {
+    width: 100%; /* Ensures the image scales with the container */
+    height: auto; /* Maintains aspect ratio */
+    border-bottom: 3px solid #f4f4f9;
+}
+
+
 /* Card Grid Section */
 .card-grid {
     display: grid;
@@ -121,5 +155,10 @@ body {
     .card-grid {
         grid-template-columns: 1fr; /* Single column layout on smaller screens */
         padding: 10px;
+    }
+
+    .download-button {
+        font-size: 10px; /* Smaller button for mobile screens */
+        padding: 4px 8px;
     }
 }
