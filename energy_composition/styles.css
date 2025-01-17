@@ -68,11 +68,18 @@ body {
     padding: 0;
 }
 
+.renewable-heading {
+    margin: 0 0 10px;
+    color: #006400;
+    font-size: 18px;
+    padding: 0;
+}
+
 
 /* Download Button*/
 .download-button {
     position: absolute; /* Allows precise positioning inside the chart container */
-    bottom: 20px; /* Moves the button upward slightly from the bottom */
+    bottom: 30px; /* Moves the button upward slightly from the bottom */
     right: 10px; /* Keeps the button close to the right edge */
     padding: 5px 10px; /* Smaller padding for a more compact button */
     background-color: #A41034; /* Dark red button */
@@ -90,17 +97,77 @@ body {
 }
 
 
+/* Download Button for Card 2 */
+.download-button-card2 {
+    position: absolute; /* Allows precise positioning inside the chart container */
+    bottom: 30px; /* Moves the button upward slightly from the bottom */
+    right: 10px; /* Keeps the button close to the right edge */
+    padding: 5px 10px; /* Smaller padding for a more compact button */
+    background-color: #002a80; /* Blue button */
+    color: white; /* White text */
+    text-decoration: none; /* Removes underline */
+    font-size: 12px; /* Reduces text size */
+    border-radius: 5px; /* Keeps the rounded corners */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}
+
+.download-button-card2:hover {
+    background-color: #03045e; /* Darker blue on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.download-button-card3 {
+    position: absolute; /* Allows precise positioning inside the chart container */
+    bottom: 30px; /* Moves the button upward slightly from the bottom */
+    right: 10px; /* Keeps the button close to the right edge */
+    padding: 5px 10px; /* Smaller padding for a more compact button */
+    background-color: #007f5f; /* Blue button */
+    color: white; /* White text */
+    text-decoration: none; /* Removes underline */
+    font-size: 12px; /* Reduces text size */
+    border-radius: 5px; /* Keeps the rounded corners */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}
+
+.download-button-card3:hover {
+    background-color: #005f47; /* Darker blue on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.download-button-card4 {
+    background-color: #006400; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.download-button-card4:hover {
+    background-color: #005f47; /* Darker blue on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+
 .chart-container {
     position: relative; /* Enables positioning of the button relative to this container */
     text-align: center; /* Centers the image */
+    margin-top: 10px; /* Adjust this value to move the SVG closer to the paragraph */
 }
 
 .chart-container img {
-    width: 100%; /* Ensures the image scales with the container */
-    height: auto; /* Maintains aspect ratio */
+    width: 100%;
+    height: auto;
     border-bottom: 3px solid #f4f4f9;
+    margin-top: -30px; /* Tighten spacing above chart */
 }
-
 
 /* Card Grid Section */
 .card-grid {
@@ -120,10 +187,6 @@ body {
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
-
-
 }
 
 .card:hover {
@@ -138,27 +201,27 @@ body {
 }
 
 .card-content {
-    padding: 20px;
+    padding: 15px; /* Reduce padding to bring elements closer together */
 }
-
-
 
 .card-content p {
-    margin: 0;
+    margin: 5px 0; /* Tighten spacing between paragraphs */
     color: #000000;
     text-align: justify;
-    font-size: 14px
+    font-size: 14px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .card-grid {
-        grid-template-columns: 1fr; /* Single column layout on smaller screens */
-        padding: 10px;
-    }
 
-    .download-button {
-        font-size: 10px; /* Smaller button for mobile screens */
-        padding: 4px 8px;
-    }
+#sector-image[src="residential.svg"] {
+    width: 95%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+#sector-image[src="industry.svg"] {
+    width: 95%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#sector-image[src="electric.svg"] {
+    width: 95%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
