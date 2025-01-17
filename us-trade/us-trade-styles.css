@@ -1,4 +1,5 @@
-body {
+/* Style adjustments for image positioning */
+body { 
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     background-image: url('../image/backgroundimagemain.svg');
@@ -78,7 +79,7 @@ nav {
 main {
     padding: 10px;
     color: #ffffff;
-    font-size: 20px
+    font-size: 20px;
 }
 
 section {
@@ -92,4 +93,39 @@ footer {
     background-color: rgba(244, 244, 244, 0.8);
     border-top: 2px solid #ddd;
     color: #333;
+}
+
+#image-container {
+    display: flex;
+    flex-direction: row; /* Align content in a row */
+    justify-content: flex-start; /* Align image to the left */
+    align-items: center;
+    gap: 20px; /* Space between image and text */
+    margin: 20px 0;
+}
+
+#image-container img {
+    max-width: 70%; /* Resize image width */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid black; /* Optional border for image */
+}
+
+#text-container {
+    flex: 1; /* Allow text to take remaining space */
+}
+
+.download-btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.download-btn:hover {
+    background-color: #005bb5;
 }
