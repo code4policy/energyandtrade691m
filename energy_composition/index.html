@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>U.S. Energy Production</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul class="nav-menu">
             <li class="nav-item"><a href="../energyandtrade691m/index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="1coal.html" class="nav-link">Download</a></li>
         </ul>
     </nav>
 
@@ -20,57 +21,102 @@
 
             <!-- Card 1 -->
             <div class="card">
+                <div class="card-content">
+                    <h3 class="production-heading">Primary Energy Production</h3>
+                    <p>
+                        The chart belowshows a significant rise in total energy production, driven by the growth of natural gas and renewables. Natural gas experienced a sharp increase from the late 2000s due to the shale gas boom, while renewables have steadily grown since 2000, reflecting a slight shift toward cleaner energy sources. Coal, once a dominant energy source, peaked in the early 2000s but has since sharply declined due to environmental regulations and competition from natural gas. Nuclear energy grew rapidly between the 1970s and 1990s before stabilizing, while petroleum production has seen a resurgence in recent decades due to advances in extraction technology.
+                    </p>
+                </div>
+
                 <div class="chart-container">
                     <img src="production.svg" alt="U.S. Primary Energy Production Chart">
-                    <a href="primary_energy_production_by_major_source_history.csv" download="Primary_Energy_Consumption_by_Source.csv" class="download-button">
-                Download Data</a>
+                    <a href="primary_energy_production_by_major_source_history.csv" download="primary_energy_consumption_by_source.csv" class="download-button">
+                        Download Data
+                    </a>
                 </div>
+
+              
             </div>
-
-            <!-- Box for Heading and Paragraph -->
-            <div class="card-content">
-
-                <h3 class="production-heading">Primary Energy Production</h3>
-                <p>
-                    This chart shows a significant rise in total energy production, driven by the growth of natural gas and renewables. Natural gas experienced a sharp increase from the late 2000s due to the shale gas boom, while renewables have steadily grown since 2000, reflecting a slight shift toward cleaner energy sources. Coal, once a dominant energy source, peaked in the early 2000s but has since sharply declined due to environmental regulations and competition from natural gas. Nuclear energy grew rapidly between the 1970s and 1990s before stabilizing, while petroleum production has seen a resurgence in recent decades due to advances in extraction technology.
-                </p>
-            </div>
-
 
             <!-- Card 2 -->
-            <div class="card">
-                <img src="consumption2.svg" alt="U.S. Primary Energy Consumption Chart">
-                <div class="card-content">
-                    <h3 class="consumption-heading">Primary Energy Consumption</h3>
-                    <p>
-                        This chart showcases shifts in the nation's energy use over time. Petroleum remains the dominant energy source, driven by its use in transportation, despite gradual declines in recent decades. Natural gas consumption has grown significantly since the 2000s, reflecting its increased role in electricity generation and industrial use. Renewables, including wind and solar, have seen steady growth since 2000 as part of the transition toward cleaner energy. Coal consumption, however, has sharply declined since its peak in the mid-2000s due to environmental regulations and competition from natural gas and renewables. Nuclear energy consumption has remained relatively stable since the 1990s, reflecting limited expansion. 
-                    </p>
-                </div>
-            </div>
+<div class="card">
+    
+
+    <!-- Box for Heading and Paragraph -->
+    <div class="card-content">
+        <h3 class="consumption-heading">Primary Energy Consumption</h3>
+        <p>
+            This chart showcases shifts in the nation's energy use over time. Petroleum remains the dominant energy source, driven by its use in transportation, despite gradual declines in recent decades. Natural gas consumption has grown significantly since the 2000s, reflecting its increased role in electricity generation and industrial use. Renewables, including wind and solar, have seen steady growth since 2000 as part of the transition toward cleaner energy. Coal consumption, however, has sharply declined since its peak in the mid-2000s due to environmental regulations and competition from natural gas and renewables. Nuclear energy consumption has remained relatively stable since the 1990s, reflecting limited expansion.
+        </p>
+    </div>
+
+    <div class="chart-container">
+        <img src="consumption2.svg" alt="U.S. Primary Energy Consumption Chart">
+        <a href="primary-consumption-by-major-source.csv" download="primary-consumption-by-major-source.csv" class="download-button-card2">
+            Download Data
+        </a>
+    </div>
+
+
+</div>
 
             <!-- Card 3 -->
-            <div class="card">
-                <img src="composition.svg" alt="U.S. Primary Energy Composition Chart">
-                <div class="card-content">
-                    <h3>Energy Composition</h3>
-                    <p>
-                        Figure 3 displays the composition of energy sources in the U.S., comparing renewables, 
-                        nuclear power, and fossil fuels over time.
-                    </p>
-                </div>
-            </div>
+<div class="card">
+    
 
-            <!-- Card 4 -->
-            <div class="card">
-                <img src="innovation.svg" alt="Energy Innovation Chart">
-                <div class="card-content">
-                    <h3>Energy Innovation</h3>
-                    <p>
-                        Figure 4 focuses on advancements in energy technology and the growth of innovative solutions 
-                        like battery storage and smart grids.
-                    </p>
-                </div>
-            </div>
+    <!-- Box for Heading and Paragraph -->
+    <div class="card-content">
+        <h3 class="renewable-heading">Renewable Energy Consumption</h3>
+        <p>
+            This graph illustrates the steady increase in U.S. renewable energy consumption from 1991 to 2024, driven by notable growth in solar and wind energy. Solar energy shows a particularly rapid rise starting around 2010, while wind energy also sees consistent gains. Biomass and hydroelectric energy remain significant contributors throughout the period but show relatively stable trends compared to solar and wind. Geothermal energy experiences moderate growth, reflecting its more limited role. Overall, the data highlights the diversification and expansion of renewable energy sources over the past three decades.
+        </p>
+    </div>
+
+    <div class="chart-container">
+        <img src="renewable.svg" alt="U.S. Primary Renewable Energy Consumption Chart">
+        <a href="Renewables_Consumption.csv" download="Renewables_Consumption.csv" class="download-button-card3">
+            Download Data
+        </a>
+    </div>
+
+
+</div>
+<!-- Card 4 -->
+<div class="card">
+    <!-- Box for Heading and Paragraph -->
+<div class="card-content">
+    <h3 class="renewable-heading">Renewable Energy Consumption</h3>
+    </div>
+    <div class="chart-container">
+        <button class="download-button-card4" onclick="showImage('residential.svg')">Residential Sector</button>
+        <button class="download-button-card4" onclick="showImage('industry.svg')">Industrial Sector</button>
+        <button class="download-button-card4" onclick="showImage('electric.svg')">Electric Power Sector</button>
+    </div>
+    <div class="image-container">
+        <img id="sector-image" src="" alt="Sector Image" style="display:none;">
+    </div>
+</div>
+<script>
+function showImage(imageSrc) {
+var img = document.getElementById('sector-image');
+img.src = imageSrc;
+img.style.display = 'block';
+}
+</script>
+                
+        
+            
+
+
+
+            
+
+
+
+
+
+
+
         </section>
     </main>
 </body>
