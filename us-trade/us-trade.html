@@ -5,105 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How the U.S. Energy Source Trade Changed Over Time?</title>
     <link rel="stylesheet" href="us-trade-styles.css">
-
-    <style>
-        /* Style adjustments for image positioning */
-        #image-container {
-            display: flex;
-            flex-direction: row; /* Align content in a row */
-            justify-content: flex-start; /* Align image to the left */
-            align-items: center;
-            gap: 20px; /* Space between image and text */
-            margin: 20px 0;
-        }
-
-        #image-container img {
-            max-width: 70%; /* Resize image width */
-            height: auto; /* Maintain aspect ratio */
-            border: 1px solid black; /* Optional border for image */
-        }
-
-        #text-container {
-            flex: 1; /* Allow text to take remaining space */
-        }
-
-        .download-btn {
-            display: block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #0073e6;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .download-btn:hover {
-            background-color: #005bb5;
-        }
-    </style>
-
-    <script>
-        // JavaScript to handle dynamic image cycling
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-
-            // Hide all sections except for petroleum by default
-            sections.forEach(section => section.style.display = 'none');
-            document.querySelector('#petroleum').style.display = 'block';
-
-            // Navigation click functionality
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    sections.forEach(section => section.style.display = 'none');
-                    document.querySelector(this.getAttribute('href')).style.display = 'block';
-                });
-            });
-
-            // Dynamic image update for each energy section
-            const energySources = [
-                { id: 'petroleum', folder: 'petroleum', prefix: 'petroleum_trade' },
-                { id: 'coal', folder: 'coal', prefix: 'coal_trade' },
-                { id: 'natural-gas', folder: 'natural_gas', prefix: 'gas_trade' }, 
-                { id: 'nuclear', folder: 'nuclear', prefix: 'nuclear_trade' },
-                { id: 'wind', folder: 'wind', prefix: 'wind_trade' },
-                { id: 'hydropower', folder: 'hydropower', prefix: 'hydro_trade' },
-                { id: 'solar', folder: 'solar', prefix: 'solar_trade' },
-                { id: 'biomass', folder: 'biomass', prefix: 'biomass_trade' },
-            ];
-
-            const startYear = 1990;
-            const endYear = 2024;
-
-            energySources.forEach(source => {
-                const image = document.getElementById(`${source.id}-map`);
-                const yearDisplay = document.getElementById(`${source.id}-year-display`);
-                let currentYear = startYear; // Start year
-
-                // Function to update the image and year display
-                function updateImage() {
-                    image.src = `us_trade_${source.folder}/${source.prefix}_${currentYear}.png`;
-                    yearDisplay.textContent = `Year: ${currentYear}`;
-                }
-
-                // Automatically cycle through years at 1-second intervals
-                function cycleImages() {
-                    setInterval(() => {
-                        currentYear = currentYear === endYear ? startYear : currentYear + 1;
-                        updateImage();
-                    }, 1000); // 1-second interval
-                }
-
-                if (image) {
-                    updateImage(); // Initial image setup
-                    cycleImages(); // Start cycling images
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -238,5 +139,7 @@
     <footer>
         <p>&copy; 2025 U.S. Energy Trade Analysis</p>
     </footer>
+
+    <script src="us-trade.js"></script>
 </body>
 </html>
