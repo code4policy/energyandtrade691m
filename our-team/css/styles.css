@@ -73,11 +73,12 @@ body {
 }
 
 /* Profiles Section */
-.profiles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 30px;
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    display: block;
+    margin-left: auto;
 }
 
 .profile-card {
