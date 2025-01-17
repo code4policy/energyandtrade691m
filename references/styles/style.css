@@ -1,0 +1,70 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2; /* 60% Background */
+    color: #333; /* Neutral text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Header Section */
+header {
+    background-image: url('../images/backgroundimagemain.svg'); /* Set the SVG as a background */
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover; /* Ensure the SVG scales properly */
+    height: 150px; /* Adjust height to display red bar and logo properly */
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* Header Title */
+header h1 {
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    margin-left: 80px; /* Adjust spacing based on SVG size */
+}
+
+/* Main Content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for readability */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    color: #A41034; /* 10% Accent */
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.container ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    color: #333; /* Neutral text color */
+    line-height: 1.8;
+}
+
+.container a {
+    color: #004a99; /* 30% Accent */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container a:hover {
+    color: #A41034; /* 10% Accent */
+}
