@@ -11,9 +11,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="../energyandtrade691m/index.html" class="nav-link">Home</a></li>
-        </ul>
+        <a href="../index.html" class="home-link">Go to Home</a>
     </nav>
 
     <main>
@@ -85,24 +83,42 @@
 <div class="card">
     <!-- Box for Heading and Paragraph -->
 <div class="card-content">
-    <h3 class="renewable-heading">Renewable Energy Consumption</h3>
+    <h3 class="renewable-heading">Renewable Energy Consumption by Sector</h3>
+    <p>
+        This section depicts the trends in renewable energy consumption across the residential, industrial, and electric power sectors in the U.S. from 1950 to 2023. In the residential sector, consumption experienced a significant decline until the 1980s, followed by a gradual recovery. The industrial sector shows a steady upward trend over the decades, reflecting consistent growth in renewable energy usage. The electric power sector, in contrast, exhibits a pronounced increase, particularly from the late 1990s, culminating in its dominance as the leading sector for renewable consumption. These trends highlight a sector-specific evolution in renewable energy adoption driven by technological advancements, policy changes, and economic shifts.
+    </p>
     </div>
     <div class="chart-container">
         <button class="download-button-card4" onclick="showImage('residential.svg')">Residential Sector</button>
         <button class="download-button-card4" onclick="showImage('industry.svg')">Industrial Sector</button>
         <button class="download-button-card4" onclick="showImage('electric.svg')">Electric Power Sector</button>
+        <button class="download-button-card4" onclick="downloadAllFiles()">Download Data</button>
     </div>
     <div class="image-container">
         <img id="sector-image" src="" alt="Sector Image" style="display:none;">
     </div>
 </div>
 <script>
-function showImage(imageSrc) {
-var img = document.getElementById('sector-image');
-img.src = imageSrc;
-img.style.display = 'block';
-}
-</script>
+    function showImage(imageSrc) {
+        var img = document.getElementById('sector-image');
+        img.src = imageSrc;
+        img.style.display = 'block';
+    }
+    
+    function downloadFile(filename) {
+        const link = document.createElement('a');
+        link.href = filename;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function downloadAllFiles() {
+        const files = ['MER_T10_02A.csv', 'MER_T10_02B.csv', 'MER_T10_02C.csv'];
+        files.forEach(file => downloadFile(file));
+    }
+    </script>
                 
         
             
