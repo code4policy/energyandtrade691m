@@ -19,53 +19,32 @@ html, body {
 
 /* General Body Styling */
 body {
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: 100%; /* Adjust this value to make the background image smaller */
-    background-repeat: no-repeat;
-    background-position: center top;
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-}
-
-.home-link {
-    display: inline-block;
-    padding: 2px 5px; /* Reduced padding */
-    margin: 10px; /* Adjusted margin */
-    background-color: #A41034; /* Background color */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove underline */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 18px; /* Reduced font size */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    position: relative;
-    z-index: 1000; /* Ensure it appears as the first layer */
-}
-
-.home-link:hover {
-    background-color: #8B0E2B; /* Darker background color on hover */
-}
-
-
-header {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    background-image: url('../image/backgroundimagemain.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    zoom: 140%;
 }
 
 /* Navbar Styles */
 .navbar {
-    position: static;
-    margin: 0 auto; /* Center the navbar */
-    background-color: #A41034;
-    color: white;
-    padding: 5px 10px; /* Adjust padding as needed */
-    border-radius: 8px;
-    text-align: center;
-    font-size: 14px; /* Adjust font size as needed */
-    width: fit-content; /* Ensure the width fits the content */
+    background-color: #A41034; /* Dark red */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
@@ -96,7 +75,6 @@ header {
     background-color: #004a99; /* 30% Accent */
     border-radius: 5px;
 }
-
 /* Main Content */
 main {
     padding: 2rem;
@@ -225,12 +203,12 @@ main {
     grid-template-columns: 1fr; /* Single column layout (vertical stacking) */
     gap: 20px; /* Space between cards */
     margin: 40px auto; /* Center the grid */
-    max-width: 850px; /* Restrict the overall width of the grid */
+    max-width: 800px; /* Restrict the overall width of the grid */
     padding: 20px;
     background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 53px;
+    margin-top: 0px;
 }
 
 /* Card Styling */
