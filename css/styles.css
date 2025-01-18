@@ -96,9 +96,12 @@ html, body {
 /* Banner Section */
 .banner {
     text-align: center;
-    padding: 6rem 2rem;
-    background-color: #002147; /* Semi-transparent 10% Accent overlay */
+    padding: 8rem 3rem;
     color: #fff;
+    background-image: url('../image/BannerBG.png'); /* Adjust the path as needed */
+    background-size: cover; /* Cover the entire banner area */
+    background-position: center 66%; /* Adjust to show more of the lower part */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
 }
 
 .banner-content h1 {
@@ -109,12 +112,13 @@ html, body {
 .banner-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+
 }
 
 .cta-button {
     text-decoration: none;
     color: #fff;
-    background-color: #004a99; /* 30% Accent */
+    background-color: #A41034; /* 30% Accent */
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-size: 1rem;
@@ -122,7 +126,7 @@ html, body {
 }
 
 .cta-button:hover {
-    background-color: #A41034; /* 10% Accent */
+    background-color: #800020; /* 10% Accent */
 }
 
 /* Content Section */
