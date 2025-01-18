@@ -27,7 +27,6 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    height: 50%; /* Show only the upper half */
 }
 
 .home-link {
@@ -58,18 +57,15 @@ header {
 
 /* Navbar Styles */
 .navbar {
-
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    margin: 0 auto; /* Center the navbar */
     background-color: #A41034;
     color: white;
-    padding: 5px 10px; /* Reduced padding to decrease height */
+    padding: 5px 10px; /* Adjust padding as needed */
     border-radius: 8px;
     text-align: center;
-    font-size: 14px; /* Reduced font size to decrease height */
-
+    font-size: 14px; /* Adjust font size as needed */
+    width: fit-content; /* Ensure the width fits the content */
 }
 
 .logo img {
