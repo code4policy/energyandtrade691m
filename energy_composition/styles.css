@@ -19,32 +19,53 @@ html, body {
 
 /* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background-image: url('../image/backgroundimagemain.svg');
+    background-size: 100%; /* Adjust this value to make the background image smaller */
+    background-repeat: no-repeat;
+    background-position: center top;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    zoom: 140%;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 2px 5px; /* Reduced padding */
+    margin: 10px; /* Adjusted margin */
+    background-color: #A41034; /* Background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 18px; /* Reduced font size */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    position: relative;
+    z-index: 1000; /* Ensure it appears as the first layer */
+}
+
+.home-link:hover {
+    background-color: #8B0E2B; /* Darker background color on hover */
+}
+
+
+header {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: #A41034; /* Dark red */
-    color: #fff; /* White text for contrast */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: static;
+    margin: 0 auto; /* Center the navbar */
+    background-color: #A41034;
+    color: white;
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px; /* Adjust font size as needed */
+    width: fit-content; /* Ensure the width fits the content */
 }
 
 .logo img {
@@ -149,7 +170,7 @@ main {
     bottom: 30px; /* Moves the button upward slightly from the bottom */
     right: 10px; /* Keeps the button close to the right edge */
     padding: 5px 10px; /* Smaller padding for a more compact button */
-    background-color: #007f5f; /* Blue button */
+    background-color: #006400; /* Blue button */
     color: white; /* White text */
     text-decoration: none; /* Removes underline */
     font-size: 12px; /* Reduces text size */
@@ -159,7 +180,7 @@ main {
 }
 
 .download-button-card3:hover {
-    background-color: #005f47; /* Darker blue on hover */
+    background-color: #004d00; /* Darker blue on hover */
     cursor: pointer; /* Pointer cursor */
 }
 
@@ -167,18 +188,21 @@ main {
     background-color: #006400; /* Green */
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 0.5em 1em; /* Adjusted padding */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 0.8em; /* Adjusted font size */
+    margin: 0.2em 0.1em; /* Adjusted margin */
     cursor: pointer;
     border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    margin-right: 20px;
 }
 
 .download-button-card4:hover {
-    background-color: #005f47; /* Darker blue on hover */
+    background-color: #004d00; /* Darker blue on hover */
     cursor: pointer; /* Pointer cursor */
 }
 
@@ -186,13 +210,12 @@ main {
 .chart-container {
     position: relative; /* Enables positioning of the button relative to this container */
     text-align: center; /* Centers the image */
-    margin-top: 10px; /* Adjust this value to move the SVG closer to the paragraph */
+    margin-top: 0px; /* Adjust this value to move the SVG closer to the paragraph */
 }
 
 .chart-container img {
     width: 100%;
     height: auto;
-    border-bottom: 3px solid #f4f4f9;
     margin-top: -30px; /* Tighten spacing above chart */
 }
 
@@ -202,11 +225,12 @@ main {
     grid-template-columns: 1fr; /* Single column layout (vertical stacking) */
     gap: 20px; /* Space between cards */
     margin: 40px auto; /* Center the grid */
-    max-width: 800px; /* Restrict the overall width of the grid */
+    max-width: 850px; /* Restrict the overall width of the grid */
     padding: 20px;
     background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 53px;
 }
 
 /* Card Styling */
@@ -217,9 +241,10 @@ main {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-6px); /* Move the card up slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
 }
+
 
 .card img {
     width: 100%;
