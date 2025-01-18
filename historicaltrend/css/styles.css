@@ -34,6 +34,30 @@ p {
     text-align: center; /* Center text inside the navbar */
 }
 
+/* Responsive Design */
+@media (max-width: 1200px) {
+    body {
+        padding: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+}
 
 .nav-menu {
     list-style: none;

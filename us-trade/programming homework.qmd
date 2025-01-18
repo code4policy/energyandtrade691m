@@ -1,0 +1,609 @@
+---
+title: "programming project"
+format: html
+editor: visual
+---
+
+```{r}
+#Petroleum
+library(sf)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+# 1990~2024 year data repeat
+years <- 1990:2024  
+
+for (yr in years) {
+  # data filter by year
+  filtered_data <- oil_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+
+  # combining data with shapefile
+  merged_data <- world_data %>%
+    left_join(filtered_data, by = c("NAME" = "country"))
+
+  # calculate central point
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  
+      y = st_coordinates(.)[, 2]   
+    )
+
+p <- ggplot() +
+  geom_sf(data = world_data, fill = "white", color = "grey") +
+  geom_sf(
+    data = merged_data,
+    aes(geometry = geometry, fill = case_when(
+      is.na(trade_balance) | trade_balance == 0 ~ "white",  
+      trade_balance < 0 ~ "blue",                        
+      trade_balance > 0 ~ "red"                            
+    )),
+    color = "grey"
+  ) +
+  scale_fill_identity(
+    name = "Trade Balance",
+    guide = "legend",
+    breaks = c("blue", "red", "white"),
+    labels = c("More Importing", "More Exporting", "No Trade")
+  ) +
+  geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+  geom_text(
+    data = label_data,
+    aes(x = x, y = y, label = round(trade_balance, 1)),
+    size = 3, color = "black", check_overlap = TRUE
+  ) +
+  theme_minimal() +
+  ggtitle(paste("US's Oil Exports and Imports by Country (", yr, ")", sep = "")) +
+  theme(
+    legend.position = "right",
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    panel.background = element_rect(fill = "white", color = NA), 
+    plot.background = element_rect(fill = "white", color = NA)   
+  )
+  # 연도별 그래프 저장
+  ggsave(filename = paste0("petroleum_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Coal
+# 1. Shapefile data 
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. New data
+coal_data <- read_excel("coal for electricity production_hscode 270900.xlsx")  
+coal_output_folder <- "us_trade_coal"  
+
+# make folder
+if (!dir.exists(coal_output_folder)) {
+  dir.create(coal_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024 
+
+for (yr in years) {
+  # data filter by year
+  filtered_data1 <- coal_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data1, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  # 거래 없음
+        trade_balance < 0 ~ "blue",                          # 적자
+        trade_balance > 0 ~ "red"                            # 흑자
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's coal Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  # 배경 흰색
+      plot.background = element_rect(fill = "white", color = NA)   # 캔버스 흰색
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(coal_output_folder, "/coal_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Natural Gas
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Coal 데이터를 불러오기
+gas_data <- read_excel("natural gas for electricity production_hscode 270900.xlsx")  # 데이터를 읽어와 정의
+gas_output_folder <- "us_trade_gas"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(coal_output_folder)) {
+  dir.create(coal_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data2 <- gas_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data2, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  
+        trade_balance < 0 ~ "blue",                          
+        trade_balance > 0 ~ "red"                            
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's Natural gas Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  
+      plot.background = element_rect(fill = "white", color = NA)   
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(coal_output_folder, "/gas_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Nuclear
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Nuclear 데이터를 불러오기
+nuclear_data <- read_excel("nuclear for electricity production_hscode 270900.xlsx")  # 데이터를 읽어와 정의
+nuclear_output_folder <- "us_trade_nuclear"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(nuclear_output_folder)) {
+  dir.create(nuclear_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data <- nuclear_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  
+      y = st_coordinates(.)[, 2]  
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  
+        trade_balance < 0 ~ "blue",                         
+        trade_balance > 0 ~ "red"                            
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's Nuclear Energy Source Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  
+      plot.background = element_rect(fill = "white", color = NA)   
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(nuclear_output_folder, "/nuclear_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Wind
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Nuclear 데이터를 불러오기
+wind_data <- read_excel("wind for electricity production_hscode 270900.xlsx") 
+wind_output_folder <- "us_trade_wind"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(wind_output_folder)) {
+  dir.create(wind_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data <- wind_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  
+        trade_balance < 0 ~ "blue",                          
+        trade_balance > 0 ~ "red"                           
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's wind Energy prodcution Source Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  
+      plot.background = element_rect(fill = "white", color = NA)   
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(wind_output_folder, "/wind_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Hydropower
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Nuclear 데이터를 불러오기
+hydro_data <- read_excel("hydropower for electricity production_hscode 270900.xlsx")  # 데이터를 읽어와 정의
+hydro_output_folder <- "us_trade_hydro"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(hydro_output_folder)) {
+  dir.create(hydro_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data4 <- hydro_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data4, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white", 
+        trade_balance < 0 ~ "blue",                          
+        trade_balance > 0 ~ "red"                            
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's wind Energy prodcution Source Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  # 배경 흰색
+      plot.background = element_rect(fill = "white", color = NA)   # 캔버스 흰색
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(hydro_output_folder, "/hydro_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Solar
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Nuclear 데이터를 불러오기
+solar_data <- read_excel("solar for electricity production_hscode 270900.xlsx")  # 데이터를 읽어와 정의
+solar_output_folder <- "us_trade_solar"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(solar_output_folder)) {
+  dir.create(solar_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data5 <- solar_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data5, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  # 거래 없음
+        trade_balance < 0 ~ "blue",                          # 적자
+        trade_balance > 0 ~ "red"                            # 흑자
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's solar Energy prodcution Source Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  # 배경 흰색
+      plot.background = element_rect(fill = "white", color = NA)   # 캔버스 흰색
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(solar_output_folder, "/solar_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
+
+```{r}
+#Biomass
+# 1. Shapefile 데이터를 그대로 유지
+shapefile_path <- "worldmap.shp"
+world_data <- st_read(shapefile_path)
+
+# 2. 새로운 Nuclear 데이터를 불러오기
+biomass_data <- read_excel("biomass for electricity production_hscode 270900_HS4401.xlsx")  # 데이터를 읽어와 정의
+biomass_output_folder <- "us_trade_biomass"  # 출력 폴더 설정
+
+# 출력 폴더가 없으면 생성
+if (!dir.exists(biomass_output_folder)) {
+  dir.create(biomass_output_folder)
+}
+
+# 1990~2024년 데이터 반복 처리
+years <- 1990:2024  # 연도 범위 지정
+
+for (yr in years) {
+  # 연도별 데이터 필터링
+  filtered_data6 <- biomass_data %>%
+    filter(year == yr) %>%
+    mutate(trade_balance = balance)  # 무역수지 그대로 사용
+  
+  # Shapefile과 데이터 결합
+  merged_data <- world_data %>%
+    left_join(filtered_data6, by = c("NAME" = "country"))
+  
+  # 중심점 계산
+  label_data <- merged_data %>%
+    filter(!is.na(trade_balance) & trade_balance != 0) %>%
+    st_centroid() %>%
+    mutate(
+      x = st_coordinates(.)[, 1],  # x 좌표 추출
+      y = st_coordinates(.)[, 2]   # y 좌표 추출
+    )
+  
+  # ggplot2 지도 생성
+  p <- ggplot() +
+    # 모든 국가 기본 경계선 표시
+    geom_sf(data = world_data, fill = "white", color = "grey") +
+    # 거래가 있는 국가 색상 표시
+    geom_sf(
+      data = merged_data,
+      aes(geometry = geometry, fill = case_when(
+        is.na(trade_balance) | trade_balance == 0 ~ "white",  # 거래 없음
+        trade_balance < 0 ~ "blue",                          # 적자
+        trade_balance > 0 ~ "red"                            # 흑자
+      )),
+      color = "grey"
+    ) +
+    scale_fill_identity(
+      name = "Trade Balance",
+      guide = "legend",
+      breaks = c("blue", "red", "white"),
+      labels = c("More Importing", "More Exporting", "No Trade")
+    ) +
+    geom_sf(data = filter(merged_data, NAME == "United States of America"), fill = "white", color = "black", size = 1) +
+    geom_text(
+      data = label_data,
+      aes(x = x, y = y, label = round(trade_balance, 1)),
+      size = 3, color = "black", check_overlap = TRUE
+    ) +
+    theme_minimal() +
+    ggtitle(paste("US's biomass Energy prodcution Source Exports and Imports by Country (", yr, ")", sep = "")) +
+    theme(
+      legend.position = "right",
+      plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+      panel.background = element_rect(fill = "white", color = NA),  # 배경 흰색
+      plot.background = element_rect(fill = "white", color = NA)   # 캔버스 흰색
+    )
+  
+  # 연도별 그래프 저장
+  ggsave(filename = paste0(biomass_output_folder, "/biomass_trade_", yr, ".png"), plot = p, width = 10, height = 6, dpi = 300)
+}
+```
