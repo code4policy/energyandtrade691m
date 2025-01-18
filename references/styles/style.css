@@ -1,70 +1,57 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    position: relative;
     font-family: Arial, sans-serif;
-}
-
-/* Ensure the background covers the entire page */
-html, body {
-    margin: 0;
+    line-height: 1.6;
+    margin: 0 auto;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #F2F2F2; /* 60% Background */
-    color: #333; /* Neutral text color for readability */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Header Section */
-header {
-    background-image: url('../images/backgroundimagemain.svg'); /* Set the SVG as a background */
+    max-width: 1200px;
+    padding: 100px 0 0; 
+    height: auto;
+    background-color: #ffffff;
+    background-image: url('../images/backgroundimagemain.svg'); /* 更新路径以确保正确性 */
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: top left;
-    background-size: cover; /* Ensure the SVG scales properly */
-    height: 150px; /* Adjust height to display red bar and logo properly */
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
+    background-position: center top;
+    overflow-x: hidden;
+    box-shadow: none; /* Removed shadow from body */
 }
 
-/* Header Title */
-header h1 {
-    font-size: 1.8rem;
-    color: #FFFFFF;
-    margin-left: 80px; /* Adjust spacing based on SVG size */
-}
-
-/* Main Content */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
+header {
+    background-color: #002855; /* 深蓝色背景 */
+    color: #ffffff; /* 白色文字 */
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9); /* Slight transparency for readability */
+    text-align: center;
+    border-bottom: none;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center; /* 标题居中 */
+}
+
+.container {
+    padding: 20px;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Removed shadow from container */
 }
 
-.container h2 {
-    color: #A41034; /* 10% Accent */
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+.home-link {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #ffffff;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
-.container ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-    color: #333; /* Neutral text color */
-    line-height: 1.8;
-}
-
-.container a {
-    color: #004a99; /* 30% Accent */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.container a:hover {
-    color: #A41034; /* 10% Accent */
+.home-link:hover {
+    color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时更深的黑色 */
 }
