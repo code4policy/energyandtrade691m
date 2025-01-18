@@ -1,57 +1,138 @@
-body {
-    position: relative;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0 auto;
+/* General Reset */
+* {
+    margin: 0;
     padding: 0;
-    max-width: 1200px;
-    padding: 100px 0 0; 
-    height: auto;
-    background-color: #ffffff;
-    background-image: url('../images/backgroundimagemain.svg'); /* 更新路径以确保正确性 */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    overflow-x: hidden;
-    box-shadow: none; /* Removed shadow from body */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2; /* 60% Background */
+    color: #333; /* Neutral text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #A41034; /* Dark red */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 100%;
+    max-height: 65px; /* Optional: Set a maximum height */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.profile-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Keep a subtle rounded corner */
+    padding: 20px; /* Internal padding for content spacing */
+    margin-bottom: 20px; /* Add spacing between multiple cards */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    line-height: 1.8; /* Increase line spacing for readability */
+}
+
+.profile-card h2 {
+    margin: 0 0 15px; /* Add spacing below the heading */
+    color: #004080; /* Use a distinct color for headings */
+    font-size: 1.6rem; /* Make headings prominent */
+}
+
+.profile-card ul {
+    margin-left: 20px; /* Indent nested lists */
+    margin-bottom: 10px; /* Add spacing between lists */
+    line-height: 1.8; /* Increase spacing for list items */
+}
+
+.profile-card li {
+    margin-bottom: 8px; /* Add spacing between list items */
+}
+
+.profile-card a {
+    color: #004080; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make links stand out */
+    transition: color 0.3s; /* Add hover transition effect */
+}
+
+.profile-card a:hover {
+    color: #002950; /* Darken link color on hover */
+}
+
+
 header {
-    background-color: #002855; /* 深蓝色背景 */
-    color: #ffffff; /* 白色文字 */
-    padding: 20px;
-    text-align: center;
-    border-bottom: none;
+    background-color: #f9f9f9; /* Match the body background color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px 0; /* Reduce vertical padding */
+    position: relative; /* Keep the header in the normal flow */
+    margin-top: -20px; /* Move the header higher */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
-    text-align: center; /* 标题居中 */
+    margin: 0; /* Remove any extra margins */
+    font-size: 2rem; /* Font size for readability */
+    color: #333; /* Neutral text color */
+    text-shadow: none; /* Remove shadow for simplicity */
+}
+
+h2 {
+    margin: 25px 0 15px; /* Add more vertical spacing around headings */
+    font-size: 1.8rem;
+    color: #333333;
+    text-align: left;
 }
 
 .container {
-    padding: 20px;
+    padding: 25px; /* Add more space inside the container */
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: none; /* Removed shadow from container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 15px 0; /* Increase the vertical space between paragraphs */
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8; /* Increase the spacing between lines */
+}
+
+strong {
+    font-weight: bold;
+    color: #000;
 }
 
 .home-link {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top:30px;
+    right: 80px;
     color: #ffffff;
     text-decoration: underline;
     font-size: 1rem;
     font-weight: bold;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0);
     padding: 5px 10px;
     border-radius: 4px;
 }
 
 .home-link:hover {
-    color: #f0f0f0;
-    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时更深的黑色 */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
