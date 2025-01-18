@@ -1,57 +1,131 @@
-body {
-    position: relative;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0 auto;
+/* General Reset */
+* {
+    margin: 0;
     padding: 0;
-    max-width: 1200px;
-    padding: 100px 0 0; 
-    height: auto;
-    background-color: #ffffff;
-    background-image: url('../image/backgroundimagemain.svg'); /* 更新路径以确保正确性 */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    overflow-x: hidden;
-    box-shadow: none; /* Removed shadow from body */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background-color: #002855; /* 深蓝色背景 */
-    color: #ffffff; /* 白色文字 */
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2; /* 60% Background */
+    color: #333; /* Neutral text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #A41034; /* Dark red */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 100%;
+    max-height: 65px; /* Optional: Set a maximum height */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.profile-header {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Add spacing between items */
+}
+
+.profile-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     padding: 20px;
-    text-align: center;
-    border-bottom: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card h2 {
+    margin-top: 0;
+    color: #004080;
+    font-size: 1.5rem;
+}
+
+.profile-card p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: #f9f9f9; /* Match the body background color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px 0; /* Reduce vertical padding */
+    position: relative; /* Keep the header in the normal flow */
+    margin-top: -20px; /* Move the header higher */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
-    text-align: center; /* 标题居中 */
+    margin: 0; /* Remove any extra margins */
+    font-size: 2rem; /* Font size for readability */
+    color: #333; /* Neutral text color */
+    text-shadow: none; /* Remove shadow for simplicity */
+}
+
+h2 {
+    margin: 20px 0 10px;
+    font-size: 1.8rem;
+    color: #333333;
+    text-align: left;
 }
 
 .container {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: none; /* Removed shadow from container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555555;
+}
+
+strong {
+    font-weight: bold;
+    color: #000;
 }
 
 .home-link {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top:30px;
+    right: 80px;
     color: #ffffff;
     text-decoration: underline;
     font-size: 1rem;
     font-weight: bold;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0);
     padding: 5px 10px;
     border-radius: 4px;
 }
 
 .home-link:hover {
-    color: #f0f0f0;
-    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时更深的黑色 */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
