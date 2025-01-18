@@ -1,33 +1,56 @@
-body {
-    position: relative;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0 auto;
+/* General Reset */
+* {
+    margin: 0;
     padding: 0;
-    max-width: 1200px;
-    padding: 100px 0 0; 
-    height: auto;
-    background-color: #f9f9f9;
-    background-image: url('../image/backgroundimagemain.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    overflow-x: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2; /* 60% Background */
+    color: #333; /* Neutral text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #A41034; /* Dark red */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 100%;
+    max-height: 65px; /* Optional: Set a maximum height */
+    width: auto; /* Maintain aspect ratio */
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9; /* Match the body background color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px 0; /* Reduce vertical padding */
+    position: relative; /* Keep the header in the normal flow */
+    margin-top: -20px; /* Move the header higher */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin: 0; /* Remove any extra margins */
+    font-size: 2rem; /* Font size for readability */
+    color: #333; /* Neutral text color */
+    text-shadow: none; /* Remove shadow for simplicity */
 }
 
 h2 {
@@ -57,19 +80,20 @@ strong {
 
 .home-link {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top:30px;
+    right: 80px;
     color: #ffffff;
     text-decoration: underline;
     font-size: 1rem;
     font-weight: bold;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0);
     padding: 5px 10px;
     border-radius: 4px;
 }
 
 .home-link:hover {
-    color: #f0f0f0;
+    color: #ffffff;
     background-color: rgba(0, 0, 0, 0.8);
 }
+
