@@ -333,3 +333,19 @@ main {
         text-align: center;
     }
 }
+
+header {
+    background-color: #f9f9f9; /* Match the body background color */
+    text-align: center; /* Center the text horizontally */
+    padding: 20px 0; /* Reduce vertical padding */
+    position: relative; /* Keep the header in the normal flow */
+    margin-top: -20px; /* Move the header higher */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+header h1 {
+    margin: 0; /* Remove any extra margins */
+    font-size: 2rem; /* Font size for readability */
+    color: #333; /* Neutral text color */
+    text-shadow: none; /* Remove shadow for simplicity */
+}
