@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-
-        <a href="../index.html" class="home-link">Go to Home</a>
-
+     <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="hkslogo.svg" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="../index.html" class="nav-link">Back Home</a></li>
+        </ul>
     </nav>
 
     <main>
@@ -98,29 +103,10 @@
         <img id="sector-image" src="" alt="Sector Image" style="display:none;">
     </div>
 </div>
-<script>
-    function showImage(imageSrc) {
-        var img = document.getElementById('sector-image');
-        img.src = imageSrc;
-        img.style.display = 'block';
-    }
-    
-    function downloadFile(filename) {
-        const link = document.createElement('a');
-        link.href = filename;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-    
-    function downloadAllFiles() {
-        const files = ['MER_T10_02A.csv', 'MER_T10_02B.csv', 'MER_T10_02C.csv'];
-        files.forEach(file => downloadFile(file));
-    }
-    </script>
                 
         </section>
     </main>
+    <!-- link to script.js -->
+    <script src="script.js"></script>
 </body>
 </html>
