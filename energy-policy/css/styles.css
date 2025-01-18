@@ -1,140 +1,57 @@
 body {
+    position: relative;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 200px; /* Updated padding */
-    background-color: #f9f9f9; /* Fallback color */
-    background-image: url('../image/backgroundimagemain.svg'); /* Background image */
-    background-size: cover; /* Ensure full coverage */
-    background-repeat: no-repeat; /* No repeat */
-    background-position: center; /* Center the image */
-    overflow-y: scroll; /* Always show vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrolling */
-    zoom: 100%; /* No scaling */
-}
-
-/* Make Text Justify */
-p {
-    text-align: justify; /* Justify text alignment */
-    line-height: 1.6; /* Add spacing between lines for better readability */
-    margin-bottom: 15px; /* Space between paragraphs */
-}
-
-/* Navbar Styles */
-.navbar {
-    position: absolute; /* Allows precise positioning using coordinates */
-    top: 15px; /* Adjust distance from the top */
-    right: 90px; /* Adjust distance from the right */
-    background-color: #A41034; /* Maroon background */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px; /* Optional rounded corners */
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    justify-content: space-around; /* Space between links */
-}
-
-.nav-item {
-    text-align: center;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    background-color: #ffffff; /* White on hover */
-    color: #800000; /* Optional: Change text color to maroon for contrast */
-    border-radius: 5px; /* Rounded corners on hover */
-    transition: background-color 0.3s;
-}
-
-/* Main container styling */
-.container {
-    display: grid;
-    gap: 20px; /* Space between items */
-    max-width: 1600px;
-    max-height: 1500px;
     margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ddd;
-    opacity: 5;
-}
-
-/* Profile card styling */
-.profile-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.profile-card h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.profile-card p {
-    margin-bottom: 0;
-    color: #555;
-}
-
-/* Headings */
-h2, h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-h2 {
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-}
-
-/* Paragraphs */
-p {
-    margin-bottom: 15px;
-}
-
-/* Lists */
-ul, ol {
-    margin: 10px 0 20px 20px;
     padding: 0;
+    max-width: 1200px;
+    padding: 100px 0 0; 
+    height: auto;
+    background-color: #ffffff;
+    background-image: url('../image/backgroundimagemain.svg'); /* 更新路径以确保正确性 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    overflow-x: hidden;
+    box-shadow: none; /* Removed shadow from body */
 }
 
-li {
-    margin-bottom: 5px;
+header {
+    background-color: #002855; /* 深蓝色背景 */
+    color: #ffffff; /* 白色文字 */
+    padding: 20px;
+    text-align: center;
+    border-bottom: none;
 }
 
-/* Links */
-a {
-    color: #3498db;
-    text-decoration: none;
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center; /* 标题居中 */
 }
 
-a:hover {
+.container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: none; /* Removed shadow from container */
+}
+
+.home-link {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #ffffff;
     text-decoration: underline;
-}
-
-/* Section for each individual */
-.individual-section {
-    margin-bottom: 30px;
-}
-
-/* Bold labels */
-label {
+    font-size: 1rem;
     font-weight: bold;
-    color: #002147;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.home-link:hover {
+    color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时更深的黑色 */
 }
